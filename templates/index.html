@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -66,7 +66,7 @@
             <div class="flex-fill" style="margin-right: 30px;">
               <div class="card blog__slide text-center">
                 <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{{ most_popular_post.image_url}}" alt="">
+                  <img class="card-img rounded-0" src="{{ most_popular_post.image_url}}" alt="most popular post image">
                 </div>
                 <div class="blog__slide__content">
                   <h3><a href="{% url 'post_detail' slug=most_popular_post.slug %}">{{ most_popular_post.title }}</a></h3>
@@ -86,28 +86,26 @@
         <div class="row">
           <div class="col-lg-8">
             {% for fresh_post in fresh_posts %}
-            <div class="single-recent-blog-post">
-              <div class="thumb">
-                  {% if fresh_post.image_url %}
-                    <img class="img-fluid" src="{{ fresh_post.image_url }}" alt="">
-                  {% else %}
-                    <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
-                  {% endif %}
-                <ul class="thumb-info" style="max-width: 550px;">
-                  <li><a href="#"><i class="ti-user"></i>{{ fresh_post.author }}</a></li>
-                  <li><a href="#"><i class="ti-notepad"></i>{{ fresh_post.published_at }}</a></li>
-                  <li><a href="#"><i class="ti-themify-favicon"></i>{{ fresh_post.comments_amount }} Comments</a></li>
-                </ul>
-              </div>
-              <div class="details mt-20">
-                <h3>{{ fresh_post.title }}</h3>
-                <p>{{ fresh_post.text|truncatechars:200 }}</p>
-                <a class="button" href="{% url 'post_detail' slug=fresh_post.slug %}">Read More <i class="ti-arrow-right"></i></a>
-              </div>
-            </div>
+                <div class="single-recent-blog-post">
+                  <div class="thumb">
+                      {% if fresh_post.image_url %}
+                          <img class="img-fluid" src="{{ fresh_post.image_url }}" alt="">
+                      {% else %}
+                          <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
+                      {% endif %}
+                    <ul class="thumb-info" style="max-width: 550px;">
+                      <li><a href="#"><i class="ti-user"></i>{{ fresh_post.author }}</a></li>
+                      <li><a href="#"><i class="ti-notepad"></i>{{ fresh_post.published_at }}</a></li>
+                      <li><a href="#"><i class="ti-themify-favicon"></i>{{ fresh_post.comments_amount }} Comments</a></li>
+                    </ul>
+                  </div>
+                  <div class="details mt-20">
+                    <h3>{{ fresh_post.title }}</h3>
+                    <p>{{ fresh_post.text|truncatechars:200 }}</p>
+                    <a class="button" href="{% url 'post_detail' slug=fresh_post.slug %}">Read More <i class="ti-arrow-right"></i></a>
+                  </div>
+                </div>
           {% endfor %}
-
-            
             <div class="row">
               <div class="col-lg-12">
                   <nav class="blog-pagination justify-content-center d-flex">
@@ -115,7 +113,7 @@
                           <li class="page-item">
                               <a href="#" class="page-link" aria-label="Previous">
                                   <span aria-hidden="true">
-                                      <i class="ti-angle-left"></i>
+                                        <i class="ti-angle-left"></i>
                                   </span>
                               </a>
                           </li>
@@ -124,7 +122,7 @@
                           <li class="page-item">
                               <a href="#" class="page-link" aria-label="Next">
                                   <span aria-hidden="true">
-                                      <i class="ti-angle-right"></i>
+                                        <i class="ti-angle-right"></i>
                                   </span>
                               </a>
                           </li>
